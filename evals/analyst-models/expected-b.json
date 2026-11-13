@@ -1,0 +1,161 @@
+{
+ "about": "Expected set_workspace_view calls for group B (and E3 = B1 in French). A question passes when any set_workspace_view call matches one of the listed argument specs: a string must equal the argument, a list lists accepted values, {\"regex\": ...} must match. Written from site/workspace-tools.js and site/workspace.js applySettings on 2026-11-10; unconfirmed until Nic confirms.",
+ "questions": [
+  {
+   "id": "B1",
+   "expected": "Reef & lagoon temperature at the backreef over the 2019 bleaching, or the heatwave_2019_reef bookmark.",
+   "confirmed": false,
+   "checks": [
+    {
+     "id": "view",
+     "text": "Opens backreef water temperature in a 2019 window (or the 2019 reef heatwave bookmark).",
+     "auto": {
+      "workspace": [
+       {
+        "bookmark": "heatwave_2019_reef"
+       },
+       {
+        "family": "reef_temp",
+        "zone": {
+         "regex": "backreef"
+        },
+        "start": {
+         "regex": "^(2018-1[0-2]|2019)"
+        }
+       },
+       {
+        "family": "reef_temp",
+        "station": {
+         "regex": "^LTER_[0-6]$"
+        },
+        "variable": {
+         "regex": "^btm_"
+        },
+        "start": {
+         "regex": "^(2018-1[0-2]|2019)"
+        }
+       },
+       {
+        "view": "reef_temperature"
+       }
+      ]
+     }
+    }
+   ],
+   "note": "The reef_temperature view takes no window or zone through the tool, so opening it is accepted. A btm_ variable at an LTER station without a zone is accepted only because backreef is one of that station's zones; Nic may want to require the zone."
+  },
+  {
+   "id": "B2",
+   "expected": "Experiments page, study 5053.1 (Caging × habitat, Acropora pulchra).",
+   "confirmed": false,
+   "checks": [
+    {
+     "id": "view",
+     "text": "Opens the Experiments page at study 5053.1.",
+     "auto": {
+      "workspace": [
+       {
+        "view": "experiments",
+        "experiment_study": {
+         "regex": "^(knb-lter-mcr\\.)?5053(\\.1)?$"
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "B3",
+   "expected": "The Fish page, or the fish-by-trophic-group preset, or the herbivore response in the coupling view.",
+   "confirmed": false,
+   "checks": [
+    {
+     "id": "view",
+     "text": "Opens fish by trophic group (Fish page, fish preset or herbivore coupling).",
+     "auto": {
+      "workspace": [
+       {
+        "view": "fish"
+       },
+       {
+        "preset": [
+         "fish_biomass_trophic",
+         "fish_biomass_habitat"
+        ]
+       },
+       {
+        "response": "herbivore_fish_biomass"
+       },
+       {
+        "family": "library",
+        "dataset_id": {
+         "regex": "89cd4b309bc073"
+        }
+       }
+      ]
+     }
+    }
+   ],
+   "note": "The tool cannot choose LTER 3 or herbivores on the Fish page (view \"fish\" takes no settings), so the check cannot require them. Whether the answer tells the user to pick LTER 3 is for the judge."
+  },
+  {
+   "id": "B4",
+   "expected": "Moorings: ocean family, FOR01, a wave-height variable, July 2024.",
+   "confirmed": false,
+   "checks": [
+    {
+     "id": "view",
+     "text": "Opens FOR01 wave height for July 2024.",
+     "auto": {
+      "workspace": [
+       {
+        "station": "FOR01",
+        "variable": [
+         "hs_adcp_m",
+         "hs_sbe26_m"
+        ],
+        "start": {
+         "regex": "^2024-0[67]"
+        },
+        "end": {
+         "regex": "^2024-0[78]"
+        }
+       }
+      ]
+     }
+    }
+   ],
+   "note": "Family is not required because ocean is the default."
+  },
+  {
+   "id": "B5",
+   "expected": "Coupling view: a thermal driver against a coral response.",
+   "confirmed": false,
+   "checks": [
+    {
+     "id": "view",
+     "text": "Opens the coupling view with a thermal driver and a coral response.",
+     "auto": {
+      "workspace": [
+       {
+        "driver": [
+         "thermal_dhw_days",
+         "thermal_max_c",
+         "diurnal_dt_c"
+        ],
+        "response": [
+         "coral_forereef_10m",
+         "coral_forereef_17m",
+         "coral_backreef",
+         "coral_fringing",
+         "coral_cover"
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

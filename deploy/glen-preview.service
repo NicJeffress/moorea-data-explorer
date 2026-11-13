@@ -1,0 +1,62 @@
+# GLEN private preview application (backend.preview, gated by Cloudflare Access).
+# Installed by deploy/bootstrap.sh as /etc/systemd/system/glen-preview.service.
+#
+# The app listens on loopback only; Caddy (127.0.0.1:8080) forwards every route
+# to it and cloudflared connects Caddy to Cloudflare. Settings and keys come
+# from /etc/glen/glen-preview.env (root:glen, mode 0640). The only writable
+# path is /var/lib/glen, which holds GLEN_PREVIEW_STATE.
+
+[Unit]
+Description=GLEN private preview (gated application)
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+Type=exec
+User=glen
+Group=glen
+WorkingDirectory=/srv/glen/runtime/glen-explorer
+EnvironmentFile=/etc/glen/glen-preview.env
+Environment=HOME=/var/lib/glen PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
+# One worker: the analyst's lease and SQL slots are per host, and 4 GiB is shared.
+ExecStart=/opt/glen/venv/bin/python -m uvicorn backend.preview:create_app --factory --host 127.0.0.1 --port 8765 --no-access-log
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+UMask=0077
+
+# Resource limits for a 2 vCPU / 4 GiB droplet; leave room for Caddy,
+# cloudflared and SSH. MemoryHigh throttles before MemoryMax kills.
+MemoryHigh=2560M
+MemoryMax=3G
+MemorySwapMax=512M
+CPUQuota=170%
+TasksMax=256
+LimitNOFILE=8192
+
+# Hardening. The runtime tree and releases are root-owned, so the app reads them only.
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+AmbientCapabilities=
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=strict
+ReadWritePaths=/var/lib/glen
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=multi-user.target

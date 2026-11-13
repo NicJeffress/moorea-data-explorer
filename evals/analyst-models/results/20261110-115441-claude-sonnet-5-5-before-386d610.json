@@ -1,0 +1,654 @@
+{
+ "model": "claude-sonnet-5-5@medium",
+ "mode": "before",
+ "commit": "c9cbdd0",
+ "before_commit": "386d610",
+ "tool_list": "not recorded",
+ "scorer_revision": "not recorded; saved scores are not recomputed for this export",
+ "score_snapshot_sha256": "09fe3d61c252b4f6be930d2ae9933c65276be3f00a6bc0f3ad29f166676b8b45",
+ "published": "numbers only: answers and tool arguments are not published",
+ "runs": [
+  {
+   "run_id": "8a3a08a23a2ff72ec50070ded275205de85d81b34af6c84609cc549cbd4a356e",
+   "source_run_index": 0,
+   "question": "W1",
+   "repeat": null,
+   "checks": 5,
+   "checks_passed": 4,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 6,
+   "data_rounds": 4,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 3587
+    },
+    {
+     "tool": "query",
+     "result_chars": 5706
+    },
+    {
+     "tool": "query",
+     "result_chars": 981
+    },
+    {
+     "tool": "query",
+     "result_chars": 574
+    },
+    {
+     "tool": "get_stac_details",
+     "result_chars": 3587
+    }
+   ],
+   "cost_micro_usd": 104165,
+   "seconds": 28.5,
+   "records": [
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 14711,
+      "cache_write_1h": 0,
+      "cache_read": 0,
+      "cached": 0,
+      "output": 63
+     },
+     "cost_micro_usd": 37416,
+     "latency_ms": 1624
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1523,
+      "cache_write_1h": 0,
+      "cache_read": 14711,
+      "cached": 0,
+      "output": 584
+     },
+     "cost_micro_usd": 11123,
+     "latency_ms": 3687
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 4734,
+      "cache_write_1h": 0,
+      "cache_read": 16234,
+      "cached": 0,
+      "output": 310
+     },
+     "cost_micro_usd": 16563,
+     "latency_ms": 2278
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 663,
+      "cache_write_1h": 0,
+      "cache_read": 20968,
+      "cached": 0,
+      "output": 1262
+     },
+     "cost_micro_usd": 16379,
+     "latency_ms": 10071
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 1295,
+      "cache_write_1h": 0,
+      "cache_read": 21631,
+      "cached": 0,
+      "output": 175
+     },
+     "cost_micro_usd": 7159,
+     "latency_ms": 2088
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1635,
+      "cache_write_1h": 0,
+      "cache_read": 22926,
+      "cached": 0,
+      "output": 914
+     },
+     "cost_micro_usd": 15525,
+     "latency_ms": 7953
+    }
+   ]
+  },
+  {
+   "run_id": "7f37a3b94408a9f6d5fd1a867cd2b09baaf87743ce325068eb6ecfa8894154f6",
+   "source_run_index": 1,
+   "question": "W1",
+   "repeat": null,
+   "checks": 5,
+   "checks_passed": 4,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 7,
+   "data_rounds": 5,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 3587
+    },
+    {
+     "tool": "query",
+     "result_chars": 5706
+    },
+    {
+     "tool": "query",
+     "result_chars": 258
+    },
+    {
+     "tool": "query",
+     "result_chars": 989
+    },
+    {
+     "tool": "query",
+     "result_chars": 691
+    },
+    {
+     "tool": "get_stac_details",
+     "result_chars": 3587
+    }
+   ],
+   "cost_micro_usd": 77818,
+   "seconds": 31.3,
+   "records": [
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 14711,
+      "cached": 0,
+      "output": 63
+     },
+     "cost_micro_usd": 2110,
+     "latency_ms": 1031
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 16234,
+      "cached": 0,
+      "output": 587
+     },
+     "cost_micro_usd": 7498,
+     "latency_ms": 3772
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 4273,
+      "cache_write_1h": 0,
+      "cache_read": 16234,
+      "cached": 0,
+      "output": 339
+     },
+     "cost_micro_usd": 15700,
+     "latency_ms": 2112
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 931,
+      "cache_write_1h": 0,
+      "cache_read": 20507,
+      "cached": 0,
+      "output": 653
+     },
+     "cost_micro_usd": 10913,
+     "latency_ms": 5441
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1094,
+      "cache_write_1h": 0,
+      "cache_read": 21438,
+      "cached": 0,
+      "output": 1283
+     },
+     "cost_micro_usd": 17713,
+     "latency_ms": 9066
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 1316,
+      "cache_write_1h": 0,
+      "cache_read": 22532,
+      "cached": 0,
+      "output": 93
+     },
+     "cost_micro_usd": 6482,
+     "latency_ms": 1347
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1553,
+      "cache_write_1h": 0,
+      "cache_read": 23848,
+      "cached": 0,
+      "output": 1113
+     },
+     "cost_micro_usd": 17402,
+     "latency_ms": 8321
+    }
+   ]
+  },
+  {
+   "run_id": "bd9bf88d035e00dbd2bc60d1fb9007a72436486278e31ba02ce3dcb6c3e8db0a",
+   "source_run_index": 2,
+   "question": "W2",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 4,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 5,
+   "data_rounds": 4,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 3748
+    },
+    {
+     "tool": "query",
+     "result_chars": 191
+    },
+    {
+     "tool": "query",
+     "result_chars": 1278
+    },
+    {
+     "tool": "query",
+     "result_chars": 632
+    }
+   ],
+   "cost_micro_usd": 70115,
+   "seconds": 14.6,
+   "records": [
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 14712,
+      "cache_write_1h": 0,
+      "cache_read": 0,
+      "cached": 0,
+      "output": 61
+     },
+     "cost_micro_usd": 37398,
+     "latency_ms": 1186
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1540,
+      "cache_write_1h": 0,
+      "cache_read": 14712,
+      "cached": 0,
+      "output": 263
+     },
+     "cost_micro_usd": 7956,
+     "latency_ms": 2020
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 354,
+      "cache_write_1h": 0,
+      "cache_read": 16252,
+      "cached": 0,
+      "output": 281
+     },
+     "cost_micro_usd": 5325,
+     "latency_ms": 2118
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 975,
+      "cache_write_1h": 0,
+      "cache_read": 16606,
+      "cached": 0,
+      "output": 241
+     },
+     "cost_micro_usd": 6513,
+     "latency_ms": 2020
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 584,
+      "cache_write_1h": 0,
+      "cache_read": 17581,
+      "cached": 0,
+      "output": 970
+     },
+     "cost_micro_usd": 12923,
+     "latency_ms": 7098
+    }
+   ]
+  },
+  {
+   "run_id": "2f316b07920fcc41ac234a989f12dec3f79fbe11a90f82d01a8a62aee1d9127f",
+   "source_run_index": 3,
+   "question": "W2",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 3,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 5,
+   "data_rounds": 4,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 3748
+    },
+    {
+     "tool": "query",
+     "result_chars": 191
+    },
+    {
+     "tool": "query",
+     "result_chars": 1260
+    },
+    {
+     "tool": "query",
+     "result_chars": 781
+    }
+   ],
+   "cost_micro_usd": 32115,
+   "seconds": 13.9,
+   "records": [
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 14712,
+      "cached": 0,
+      "output": 61
+     },
+     "cost_micro_usd": 2090,
+     "latency_ms": 1138
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 16252,
+      "cached": 0,
+      "output": 265
+     },
+     "cost_micro_usd": 4280,
+     "latency_ms": 1967
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 356,
+      "cache_write_1h": 0,
+      "cache_read": 16252,
+      "cached": 0,
+      "output": 283
+     },
+     "cost_micro_usd": 5350,
+     "latency_ms": 1963
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 989,
+      "cache_write_1h": 0,
+      "cache_read": 16608,
+      "cached": 0,
+      "output": 283
+     },
+     "cost_micro_usd": 6968,
+     "latency_ms": 2194
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 705,
+      "cache_write_1h": 0,
+      "cache_read": 17597,
+      "cached": 0,
+      "output": 990
+     },
+     "cost_micro_usd": 13427,
+     "latency_ms": 6490
+    }
+   ]
+  },
+  {
+   "run_id": "b7471e9a0b70baa2c2ca81018fe905f915f87453835d4bb4cabc1236d99da7f4",
+   "source_run_index": 4,
+   "question": "W3",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 2,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 3,
+   "data_rounds": 2,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 6433
+    },
+    {
+     "tool": "query",
+     "result_chars": 2336
+    }
+   ],
+   "cost_micro_usd": 71675,
+   "seconds": 13.8,
+   "records": [
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 14704,
+      "cache_write_1h": 0,
+      "cache_read": 0,
+      "cached": 0,
+      "output": 61
+     },
+     "cost_micro_usd": 37378,
+     "latency_ms": 1081
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 3799,
+      "cache_write_1h": 0,
+      "cache_read": 14704,
+      "cached": 0,
+      "output": 338
+     },
+     "cost_micro_usd": 14352,
+     "latency_ms": 2403
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1940,
+      "cache_write_1h": 0,
+      "cache_read": 18503,
+      "cached": 0,
+      "output": 1324
+     },
+     "cost_micro_usd": 19945,
+     "latency_ms": 10267
+    }
+   ]
+  },
+  {
+   "run_id": "3a2d5c06a473028b6afc9245cdcfce896dd17b58df6977275cd7b095dec32db7",
+   "source_run_index": 5,
+   "question": "W3",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 3,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 5,
+   "data_rounds": 4,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 6433
+    },
+    {
+     "tool": "query",
+     "result_chars": 203
+    },
+    {
+     "tool": "query",
+     "result_chars": 2296
+    },
+    {
+     "tool": "query",
+     "result_chars": 225
+    }
+   ],
+   "cost_micro_usd": 34707,
+   "seconds": 15.7,
+   "records": [
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 14704,
+      "cached": 0,
+      "output": 61
+     },
+     "cost_micro_usd": 2089,
+     "latency_ms": 1263
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 18503,
+      "cached": 0,
+      "output": 335
+     },
+     "cost_micro_usd": 5205,
+     "latency_ms": 2428
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 410,
+      "cache_write_1h": 0,
+      "cache_read": 18503,
+      "cached": 0,
+      "output": 320
+     },
+     "cost_micro_usd": 6080,
+     "latency_ms": 2062
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1816,
+      "cache_write_1h": 0,
+      "cache_read": 18913,
+      "cached": 0,
+      "output": 272
+     },
+     "cost_micro_usd": 9156,
+     "latency_ms": 2044
+    },
+    {
+     "served_model": "claude-sonnet-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 416,
+      "cache_write_1h": 0,
+      "cache_read": 20729,
+      "cached": 0,
+      "output": 906
+     },
+     "cost_micro_usd": 12177,
+     "latency_ms": 7692
+    }
+   ]
+  }
+ ]
+}

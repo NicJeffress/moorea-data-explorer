@@ -1,0 +1,533 @@
+{
+ "about": "Expected answers to group A, computed from the local database by compute_expected_a.py. Unconfirmed until Nic sets confirmed: true (and confirmed_by) on each entry.",
+ "questions": [
+  {
+   "id": "A1",
+   "table": "data_5529b3cb6a95e0",
+   "package": "knb-lter-mcr.4.44",
+   "rule": "Coral & benthic cover page (backend/coral.py): stony coral = every taxon except CTB, sand, macroalgae, Millepora, soft coral, non-coralline crustose algae, unknown or other, Cyanophyceae; summed per quadrat, quadrats averaged within each transect section, sections averaged.",
+   "sql": "WITH src AS (\n      SELECT try_cast(left(date,4) AS INTEGER) AS year, try_cast(substr(date,6,2) AS INTEGER) AS month, site,\n        CASE WHEN habitat='Fringing' THEN 'Fringing' ELSE 'Forereef '||depth||' m' END AS habitat,\n        section_of_transect AS section, quad40 AS quad,\n        taxonomy_substrate_or_functional_group AS taxon, percent_cover AS v\n      FROM data_5529b3cb6a95e0 WHERE habitat IN ('Fringing','Forereef')),\n    quads AS (SELECT year,site,habitat,section,quad,min(month) AS m0,max(month) AS m1,\n      sum(v) FILTER (WHERE taxon NOT IN ('CTB','Sand','Macroalgae','Millepora','Soft Coral','Non-coralline Crustose Algae','Unknown or Other','Cyanophyceae')) AS v,\n      count(*) FILTER (WHERE taxon NOT IN ('CTB','Sand','Macroalgae','Millepora','Soft Coral','Non-coralline Crustose Algae','Unknown or Other','Cyanophyceae')) AS group_rows,\n      count(v) FILTER (WHERE taxon NOT IN ('CTB','Sand','Macroalgae','Millepora','Soft Coral','Non-coralline Crustose Algae','Unknown or Other','Cyanophyceae')) AS finite_rows\n      FROM src GROUP BY ALL),\n    sections AS (SELECT year,site,habitat,section,avg(v) AS v,min(m0) AS m0,max(m1) AS m1\n      FROM quads WHERE group_rows>0 AND finite_rows=group_rows GROUP BY ALL)\n    SELECT site,habitat,year,avg(v) AS value,min(m0) AS month_first,max(m1) AS month_last\n    FROM sections GROUP BY ALL ORDER BY habitat,site,year\n-- then: site = LTER_1, habitat = Forereef 10 m, highest value",
+   "result": [
+    {
+     "year": 2019,
+     "value": 80.62583333333333,
+     "month_first": 3,
+     "month_last": 3
+    },
+    {
+     "year": 2018,
+     "value": 80.50964285714285,
+     "month_first": 4,
+     "month_last": 4
+    },
+    {
+     "year": 2017,
+     "value": 74.20785714285714,
+     "month_first": 4,
+     "month_last": 4
+    }
+   ],
+   "cross_check": {
+    "sql": "WITH q AS (SELECT left(date,4) AS year, location, sum(percent_cover) AS v\n  FROM data_5529b3cb6a95e0\n  WHERE site='LTER_1' AND habitat='Forereef' AND depth='10'\n    AND taxonomy_substrate_or_functional_group NOT IN ('CTB', 'Sand', 'Macroalgae', 'Millepora', 'Soft Coral', 'Non-coralline Crustose Algae', 'Unknown or Other', 'Cyanophyceae')\n  GROUP BY ALL)\nSELECT year, avg(v) AS mean_cover_pct, count(*) AS quadrats FROM q GROUP BY year ORDER BY mean_cover_pct DESC LIMIT 3",
+    "result": [
+     {
+      "year": "2019",
+      "mean_cover_pct": 80.57368421052632,
+      "quadrats": 38
+     },
+     {
+      "year": "2018",
+      "mean_cover_pct": 80.27297297297295,
+      "quadrats": 37
+     },
+     {
+      "year": "2017",
+      "mean_cover_pct": 74.13243243243242,
+      "quadrats": 37
+     }
+    ]
+   },
+   "expected": {
+    "year": 2019,
+    "cover_pct": 80.6
+   },
+   "note": "2018 is close behind (80.5%); a plain mean over quadrats also gives 2019 (80.6% vs 80.3%). Cover then falls to 14.9% in 2020 and 0.1% in 2024.",
+   "checks": [
+    {
+     "id": "year",
+     "text": "Names 2019 as the highest year (in a sentence saying so, or as the headline).",
+     "auto": {
+      "one_of": [
+       {
+        "sentence_all": [
+         "\\b2019\\b",
+         "highest|peak|maxim|greatest|most|top|plus élev|\\bpic\\b|record"
+        ]
+       },
+       {
+        "lead": [
+         "\\b2019\\b"
+        ],
+        "none": [
+         "^\\W*(?:\\w+\\W+){0,8}?(?:2018|2017)\\b"
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "value",
+     "text": "Gives about 80.6% (80.1–81.1 accepted).",
+     "auto": {
+      "number": {
+       "value": 80.6,
+       "tol": 0.5
+      }
+     }
+    }
+   ],
+   "confirmed": false,
+   "confirmed_by": null
+  },
+  {
+   "id": "A2",
+   "table": "data_de5685f79bcdc2",
+   "package": "knb-lter-mcr.1038.15",
+   "rule": "Coral cover page (backend/coral.py series): valid quadrats averaged within each patch, patches weighted equally within a site; then the six site means averaged (every site has 5 patches in 2025).",
+   "sql": "WITH source AS (\n      SELECT try_cast(year AS INTEGER) AS year,site,patch,quad,\"coral\" AS v\n      FROM data_de5685f79bcdc2 WHERE habitat='Backreef' AND depth=2\n        AND site IN ('LTER_1','LTER_2','LTER_3','LTER_4','LTER_5','LTER_6')\n        AND try_cast(year AS INTEGER) BETWEEN 2025 AND 2025),\n    patches AS (SELECT year,site,patch,\n      avg(v) FILTER (WHERE isfinite(v) AND v BETWEEN 0 AND 100) AS patch_mean,\n      count(*) FILTER (WHERE isfinite(v) AND v BETWEEN 0 AND 100) AS n,\n      count(*) AS source_rows FROM source GROUP BY year,site,patch),\n    summaries AS (SELECT year,site,avg(patch_mean) AS value,min(patch_mean) AS lo,\n      max(patch_mean) AS hi,sum(n)::INTEGER AS n,sum(source_rows)::INTEGER AS source_rows,\n      count(patch_mean)::INTEGER AS n_patches FROM patches GROUP BY year,site),\n    bins AS (SELECT unnest(range(2025,2026)) AS year),\n    sites AS (SELECT unnest(['LTER_1', 'LTER_2', 'LTER_3', 'LTER_4', 'LTER_5', 'LTER_6']) AS site)\n    SELECT site,year,cast(year AS VARCHAR) AS date,value,lo,hi,\n      coalesce(n,0) AS n,coalesce(source_rows,0) AS source_rows,\n      coalesce(n_patches,0) AS n_patches,n::DOUBLE/nullif(source_rows,0) AS coverage\n    FROM (sites CROSS JOIN bins) LEFT JOIN summaries USING(site,year) ORDER BY site,year",
+   "result": [
+    {
+     "site": "LTER_1",
+     "value": 8.705263157894738,
+     "n_patches": 5,
+     "n": 99
+    },
+    {
+     "site": "LTER_2",
+     "value": 1.2,
+     "n_patches": 5,
+     "n": 100
+    },
+    {
+     "site": "LTER_3",
+     "value": 15.126315789473685,
+     "n_patches": 5,
+     "n": 99
+    },
+    {
+     "site": "LTER_4",
+     "value": 35.08,
+     "n_patches": 5,
+     "n": 100
+    },
+    {
+     "site": "LTER_5",
+     "value": 22.119999999999997,
+     "n_patches": 5,
+     "n": 100
+    },
+    {
+     "site": "LTER_6",
+     "value": 35.44,
+     "n_patches": 5,
+     "n": 100
+    }
+   ],
+   "expected": {
+    "mean_cover_pct": 19.61,
+    "sites": 6
+   },
+   "note": "Site means run from 1.2% (LTER 2) to 35.4% (LTER 6). The question asks for one average, so the spread across sites is a caveat worth stating.",
+   "checks": [
+    {
+     "id": "value",
+     "text": "Gives about 19.6% (19.4–19.8 accepted).",
+     "auto": {
+      "number": {
+       "value": 19.61,
+       "tol": 0.2
+      }
+     }
+    }
+   ],
+   "confirmed": false,
+   "confirmed_by": null
+  },
+  {
+   "id": "A3",
+   "table": "data_8dfa1f5467b251",
+   "package": "knb-lter-mcr.1039.13",
+   "rule": "Sum of transect counts.",
+   "sql": "SELECT year, site, sum(cots) AS cots, count(cots) AS transects\nFROM data_8dfa1f5467b251 GROUP BY ALL ORDER BY cots DESC LIMIT 5",
+   "result": [
+    {
+     "year": "2008",
+     "site": "LTER 4",
+     "cots": 41,
+     "transects": 12
+    },
+    {
+     "year": "2008",
+     "site": "LTER 6",
+     "cots": 39,
+     "transects": 12
+    },
+    {
+     "year": "2008",
+     "site": "LTER 2",
+     "cots": 30,
+     "transects": 12
+    },
+    {
+     "year": "2009",
+     "site": "LTER 2",
+     "cots": 26,
+     "transects": 12
+    },
+    {
+     "year": "2024",
+     "site": "LTER 2",
+     "cots": 22,
+     "transects": 12
+    }
+   ],
+   "cross_check": {
+    "sql": "SELECT year, sum(cots) ... GROUP BY year",
+    "result": [
+     {
+      "year": "2008",
+      "cots": 127
+     },
+     {
+      "year": "2009",
+      "cots": 89
+     },
+     {
+      "year": "2024",
+      "cots": 79
+     }
+    ]
+   },
+   "expected": {
+    "year": "2008",
+    "site": "LTER 4",
+    "count": 41
+   },
+   "note": "2008 is the highest year in total (127) and LTER 4 the highest site that year (41, all on the forereef); LTER 6 is close (39). Counts are per four transects per habitat; the source does not state the transect area here.",
+   "checks": [
+    {
+     "id": "year",
+     "text": "Names 2008 (in a sentence saying it is highest, or as the headline).",
+     "auto": {
+      "one_of": [
+       {
+        "sentence_all": [
+         "\\b2008\\b",
+         "highest|peak|most|maxim|greatest"
+        ]
+       },
+       {
+        "lead": [
+         "\\b2008\\b"
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "site",
+     "text": "Names LTER 4 as the site.",
+     "auto": {
+      "sentence_all": [
+       "LTER[ _-]?4\\b"
+      ],
+      "sentence_any": [],
+      "any": [
+       "2008[^\\n]{0,200}LTER[ _-]?4|LTER[ _-]?4[^\\n]{0,200}2008"
+      ]
+     }
+    }
+   ],
+   "confirmed": false,
+   "confirmed_by": null
+  },
+  {
+   "id": "A4",
+   "table": "data_89cd4b309bc073",
+   "package": "knb-lter-mcr.6.65",
+   "rule": "Fish page (backend/fish.py): biomass (g) / swath area, swaths added per transect, transects averaged; herbivores = Coarse_Trophic \"Primary Consumer\" (herbivores and detritivores).",
+   "sql": "WITH t AS (\n  SELECT transect,\n    coalesce(sum(biomass / CASE try_cast(swath AS INTEGER) WHEN 1 THEN 50.0 WHEN 5 THEN 250.0 END)\n      FILTER (WHERE coarse_trophic = 'Primary Consumer' AND taxonomy IS NOT NULL AND biomass IS NOT NULL), 0) AS g_m2,\n    list(DISTINCT swath ORDER BY swath) AS swaths\n  FROM data_89cd4b309bc073\n  WHERE year = '2023' AND site = 'LTER_4' AND habitat = 'Forereef'\n  GROUP BY transect)\nSELECT avg(g_m2) AS mean_g_m2, count(*) AS transects, list(round(g_m2, 2) ORDER BY transect) AS per_transect FROM t",
+   "result": [
+    {
+     "mean_g_m2": 15.506099999999998,
+     "transects": 4,
+     "per_transect": [
+      11.67,
+      21.14,
+      12.9,
+      16.31
+     ]
+    }
+   ],
+   "cross_check": {
+    "source": "backend.fish.transects()",
+    "mean": 15.506099999999998
+   },
+   "expected": {
+    "g_per_m2": 15.51,
+    "transects": 4
+   },
+   "note": "Transects 11.7–21.1 g/m². Dividing everything by 250 m², or using the fine trophic groups, gives other numbers; the check accepts only the page rule.",
+   "checks": [
+    {
+     "id": "value",
+     "text": "Gives about 15.5 g/m² (15.3–15.7 accepted).",
+     "auto": {
+      "number": {
+       "value": 15.51,
+       "tol": 0.2
+      }
+     }
+    }
+   ],
+   "confirmed": false,
+   "confirmed_by": null
+  },
+  {
+   "id": "A6",
+   "table": "data_def72abee9557e",
+   "package": "knb-lter-mcr.1034.9",
+   "rule": "Mean of non-missing phosphate (NA excluded).",
+   "sql": "SELECT avg(phosphate) AS mean_umol_l, count(phosphate) AS samples, count(*) AS rows_total\nFROM data_def72abee9557e",
+   "result": [
+    {
+     "mean_umol_l": 0.14314942528735614,
+     "samples": 435,
+     "rows_total": 436
+    }
+   ],
+   "cross_check": {
+    "sql": "... GROUP BY cruise, type",
+    "result": [
+     {
+      "cruise": "Additional nutrients",
+      "type": "Falcon tube",
+      "n": 125,
+      "mean": 0.16040000000000007
+     },
+     {
+      "cruise": "Additional nutrients",
+      "type": "Niskin bottle",
+      "n": 47,
+      "mean": 0.0974468085106383
+     },
+     {
+      "cruise": "Additional nutrients",
+      "type": "falcon tube",
+      "n": 164,
+      "mean": 0.13969512195121966
+     },
+     {
+      "cruise": "LTER bi-annual",
+      "type": "Niskin bottle",
+      "n": 99,
+      "mean": 0.1487878787878788
+     }
+    ]
+   },
+   "expected": {
+    "mean_umol_l": 0.143,
+    "samples": 435
+   },
+   "note": "436 rows, one with phosphate NA. The rows mix Niskin bottles and Falcon tubes, and the LTER bi-annual and \"Additional nutrients\" cruises; a good answer says so.",
+   "checks": [
+    {
+     "id": "value",
+     "text": "Gives about 0.143 µmol/L (0.139–0.147 accepted, so 0.14 passes).",
+     "auto": {
+      "number": {
+       "value": 0.143,
+       "tol": 0.004
+      }
+     }
+    },
+    {
+     "id": "count",
+     "text": "Gives 435 samples.",
+     "auto": {
+      "number": {
+       "value": 435,
+       "tol": 0
+      }
+     }
+    }
+   ],
+   "confirmed": false,
+   "confirmed_by": null
+  },
+  {
+   "id": "A8",
+   "table": "data_1b0e3474b88488",
+   "package": "knb-lter-mcr.7.38",
+   "rule": "Sum of counts for genus Diadema (D. savignyi, D. setosum) in the 20 one-square-metre quadrats.",
+   "sql": "SELECT taxonomy, sum(count) AS urchins, count(*) AS quadrats\nFROM data_1b0e3474b88488\nWHERE site = 'LTER_1' AND habitat = 'Backreef' AND year = '2010' AND taxonomy ILIKE '%diadema%'\nGROUP BY taxonomy ORDER BY taxonomy",
+   "result": [
+    {
+     "taxonomy": "Diadema savignyi",
+     "urchins": 3,
+     "quadrats": 20
+    },
+    {
+     "taxonomy": "Echinothrix diadema",
+     "urchins": 9,
+     "quadrats": 20
+    }
+   ],
+   "expected": {
+    "diadema": 3,
+    "quadrats": 20
+   },
+   "note": "Echinothrix diadema (9 counted) is a different genus; including it gives 12. The 2010 survey date is stored as 2010-01-01 for every row.",
+   "checks": [
+    {
+     "id": "value",
+     "text": "Gives 3 Diadema.",
+     "auto": {
+      "sentence_all": [
+       "\\b(?:3|three)\\b",
+       "Diadema"
+      ]
+     }
+    },
+    {
+     "id": "genus",
+     "text": "Does not lead with 12 (Echinothrix diadema counted as Diadema); a later aside about 12 is fine.",
+     "auto": {
+      "lead_none": [
+       "\\b12\\b"
+      ]
+     }
+    }
+   ],
+   "confirmed": false,
+   "confirmed_by": null
+  },
+  {
+   "id": "A9",
+   "table": "data_303d9644b435ed",
+   "package": "knb-lter-mcr.5.25",
+   "rule": "Highest monthly mean nighttime SST from MODIS Aqua (the only SST column); -999 is missing.",
+   "sql": "SELECT year, month, mean_nsst_aqua, pct_valid_nsst_aqua FROM data_303d9644b435ed\nWHERE mean_nsst_aqua > -900 ORDER BY mean_nsst_aqua DESC LIMIT 3",
+   "result": [
+    {
+     "year": "2019",
+     "month": "4",
+     "mean_nsst_aqua": 29.259899,
+     "pct_valid_nsst_aqua": 99.13
+    },
+    {
+     "year": "2020",
+     "month": "4",
+     "mean_nsst_aqua": 29.185196,
+     "pct_valid_nsst_aqua": 99.15
+    },
+    {
+     "year": "2003",
+     "month": "3",
+     "mean_nsst_aqua": 29.181355,
+     "pct_valid_nsst_aqua": 99.17
+    }
+   ],
+   "cross_check": {
+    "span": {
+     "first": "2002-07-01",
+     "last": "2020-04-01",
+     "months": 213
+    }
+   },
+   "expected": {
+    "year": "2019",
+    "month": "April",
+    "sst_c": 29.26
+   },
+   "note": "The SST series runs 2002-07-01 to 2020-04-01 (213 months), so later heat is not in it. April 2020 is 0.07 °C lower. A good answer says it is nighttime SST and where the series ends.",
+   "checks": [
+    {
+     "id": "month",
+     "text": "Names April 2019.",
+     "auto": {
+      "any": [
+       "Apr\\w*\\.?,? 2019|2019-0?4\\b"
+      ]
+     }
+    },
+    {
+     "id": "value",
+     "text": "Gives about 29.26 °C.",
+     "auto": {
+      "number": {
+       "value": 29.26,
+       "tol": 0.03
+      }
+     }
+    }
+   ],
+   "confirmed": false,
+   "confirmed_by": null
+  },
+  {
+   "id": "A10",
+   "table": "data_fa2f2b7f84e384",
+   "package": "knb-lter-mcr.4001.15",
+   "rule": "Sum of Pocilloporidae counts by shore and season (missing codes -1, -2 excluded).",
+   "sql": "SELECT shore, season, sum(count) AS recruits, count(DISTINCT nominal_year || location || tile_id) AS tiles\nFROM data_fa2f2b7f84e384 WHERE family = 'Pocilloporidae' AND count >= 0\nGROUP BY ALL ORDER BY recruits DESC",
+   "result": [
+    {
+     "shore": "north",
+     "season": "jan-sep",
+     "recruits": 2504,
+     "tiles": 1766
+    },
+    {
+     "shore": "north",
+     "season": "sep-jan",
+     "recruits": 1313,
+     "tiles": 1722
+    },
+    {
+     "shore": "west",
+     "season": "jan-sep",
+     "recruits": 11,
+     "tiles": 48
+    },
+    {
+     "shore": "east",
+     "season": "jan-sep",
+     "recruits": 0,
+     "tiles": 16
+    }
+   ],
+   "expected": {
+    "shore": "north",
+    "season": "jan-sep",
+    "recruits": 2504
+   },
+   "note": "Most tiles are on the north shore, so totals mostly reflect effort; recruits per tile is the fairer comparison and gives the same top cell. A good answer says so.",
+   "checks": [
+    {
+     "id": "shore_season",
+     "text": "Names the north shore, January–September deployments.",
+     "auto": {
+      "sentence_all": [
+       "north",
+       "jan\\w*\\.?\\s*(?:–|-|to|through)\\s*sep|jan-sep"
+      ],
+      "sentence_any": []
+     }
+    }
+   ],
+   "confirmed": false,
+   "confirmed_by": null
+  }
+ ]
+}

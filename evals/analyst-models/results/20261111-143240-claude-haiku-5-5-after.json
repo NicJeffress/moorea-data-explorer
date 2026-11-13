@@ -1,0 +1,917 @@
+{
+ "model": "claude-haiku-5-5@medium",
+ "mode": "after",
+ "commit": "142c5c6",
+ "tool_list": "eval",
+ "scorer_revision": "not recorded; saved scores are not recomputed for this export",
+ "score_snapshot_sha256": "024a23e030ba3488df01fc964092a7ce24223edb641db9f1a1ac04d83a25bac0",
+ "published": "numbers only: answers and tool arguments are not published",
+ "runs": [
+  {
+   "run_id": "589c8aa71932d5a89cf6d9443b6cda720a2c078e9f919e1e186f9a7595d3df5a",
+   "source_run_index": 0,
+   "question": "W1",
+   "repeat": null,
+   "checks": 5,
+   "checks_passed": 5,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 5,
+   "data_rounds": 2,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 8213
+    },
+    {
+     "tool": "describe_sampling",
+     "result_chars": 4090
+    },
+    {
+     "tool": "query",
+     "result_chars": 16016
+    },
+    {
+     "tool": "query",
+     "result_chars": 1936
+    },
+    {
+     "tool": "set_workspace_view",
+     "result_chars": 66
+    }
+   ],
+   "cost_micro_usd": 6111,
+   "seconds": 28.0,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 8059,
+      "cached": 0,
+      "output": 276
+     },
+     "cost_micro_usd": 219,
+     "latency_ms": 1935
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 6000,
+      "cache_write_1h": 0,
+      "cache_read": 8059,
+      "cached": 0,
+      "output": 1229
+     },
+     "cost_micro_usd": 1446,
+     "latency_ms": 5431
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 11179,
+      "cache_write_1h": 0,
+      "cache_read": 14059,
+      "cached": 0,
+      "output": 799
+     },
+     "cost_micro_usd": 1938,
+     "latency_ms": 3960
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 829,
+      "cache_write_1h": 0,
+      "cache_read": 25238,
+      "cached": 0,
+      "output": 1728
+     },
+     "cost_micro_usd": 1221,
+     "latency_ms": 7206
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 1812,
+      "cache_write_1h": 0,
+      "cache_read": 26067,
+      "cached": 0,
+      "output": 1598
+     },
+     "cost_micro_usd": 1287,
+     "latency_ms": 8373
+    }
+   ]
+  },
+  {
+   "run_id": "8af4c9ba099fc8474ae0e7cdd9f47e5fddda69709c1164bc1d58906d32eba02b",
+   "source_run_index": 1,
+   "question": "W1",
+   "repeat": null,
+   "checks": 5,
+   "checks_passed": 5,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 5,
+   "data_rounds": 3,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 8213
+    },
+    {
+     "tool": "describe_sampling",
+     "result_chars": 4090
+    },
+    {
+     "tool": "query",
+     "result_chars": 16016
+    },
+    {
+     "tool": "query",
+     "result_chars": 1869
+    }
+   ],
+   "cost_micro_usd": 6218,
+   "seconds": 26.6,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 8059,
+      "cached": 0,
+      "output": 276
+     },
+     "cost_micro_usd": 219,
+     "latency_ms": 1368
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 6000,
+      "cache_write_1h": 0,
+      "cache_read": 8059,
+      "cached": 0,
+      "output": 705
+     },
+     "cost_micro_usd": 1184,
+     "latency_ms": 3285
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 9809,
+      "cache_write_1h": 0,
+      "cache_read": 14059,
+      "cached": 0,
+      "output": 1253
+     },
+     "cost_micro_usd": 1994,
+     "latency_ms": 5024
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 2310,
+      "cache_write_1h": 0,
+      "cache_read": 23868,
+      "cached": 0,
+      "output": 2147
+     },
+     "cost_micro_usd": 1602,
+     "latency_ms": 9034
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 1819,
+      "cache_write_1h": 0,
+      "cache_read": 26178,
+      "cached": 0,
+      "output": 1457
+     },
+     "cost_micro_usd": 1219,
+     "latency_ms": 7435
+    }
+   ]
+  },
+  {
+   "run_id": "658111ebe6149c477c931a44815982929e5ccb10b2b27ba83bc4c14f1139b091",
+   "source_run_index": 2,
+   "question": "W1",
+   "repeat": null,
+   "checks": 5,
+   "checks_passed": 5,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 5,
+   "data_rounds": 2,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 8213
+    },
+    {
+     "tool": "describe_sampling",
+     "result_chars": 4090
+    },
+    {
+     "tool": "query",
+     "result_chars": 16016
+    },
+    {
+     "tool": "query",
+     "result_chars": 1806
+    },
+    {
+     "tool": "set_workspace_view",
+     "result_chars": 66
+    }
+   ],
+   "cost_micro_usd": 6532,
+   "seconds": 29.5,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 8059,
+      "cached": 0,
+      "output": 273
+     },
+     "cost_micro_usd": 218,
+     "latency_ms": 1534
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 5997,
+      "cache_write_1h": 0,
+      "cache_read": 8059,
+      "cached": 0,
+      "output": 1161
+     },
+     "cost_micro_usd": 1411,
+     "latency_ms": 4740
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 11230,
+      "cache_write_1h": 0,
+      "cache_read": 14056,
+      "cached": 0,
+      "output": 1206
+     },
+     "cost_micro_usd": 2148,
+     "latency_ms": 6009
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1236,
+      "cache_write_1h": 0,
+      "cache_read": 25286,
+      "cached": 0,
+      "output": 1679
+     },
+     "cost_micro_usd": 1248,
+     "latency_ms": 7010
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 1760,
+      "cache_write_1h": 0,
+      "cache_read": 26522,
+      "cached": 0,
+      "output": 2041
+     },
+     "cost_micro_usd": 1507,
+     "latency_ms": 9763
+    }
+   ]
+  },
+  {
+   "run_id": "47f0ad6e3d2bea6af7dd67f684842e8a45deac8c23f896ebe928a4d503216129",
+   "source_run_index": 3,
+   "question": "W2",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 2,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 4,
+   "data_rounds": 3,
+   "tools": [
+    {
+     "tool": "browse_stac_catalog",
+     "result_chars": 16016
+    },
+    {
+     "tool": "get_schema",
+     "result_chars": 6025
+    },
+    {
+     "tool": "query",
+     "result_chars": 2519
+    },
+    {
+     "tool": "query",
+     "result_chars": 1586
+    }
+   ],
+   "cost_micro_usd": 4130,
+   "seconds": 11.4,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 8060,
+      "cache_write_1h": 0,
+      "cache_read": 0,
+      "cached": 0,
+      "output": 243
+     },
+     "cost_micro_usd": 1130,
+     "latency_ms": 1352
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 8990,
+      "cache_write_1h": 0,
+      "cache_read": 8060,
+      "cached": 0,
+      "output": 479
+     },
+     "cost_micro_usd": 1445,
+     "latency_ms": 2060
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1754,
+      "cache_write_1h": 0,
+      "cache_read": 17050,
+      "cached": 0,
+      "output": 453
+     },
+     "cost_micro_usd": 617,
+     "latency_ms": 2376
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1208,
+      "cache_write_1h": 0,
+      "cache_read": 18804,
+      "cached": 0,
+      "output": 1196
+     },
+     "cost_micro_usd": 938,
+     "latency_ms": 5267
+    }
+   ]
+  },
+  {
+   "run_id": "be689012a1f9ff498b0d20efd0bfaf34518c4f03b492581bafce712564b45211",
+   "source_run_index": 4,
+   "question": "W2",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 3,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 4,
+   "data_rounds": 3,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 6025
+    },
+    {
+     "tool": "get_schema",
+     "result_chars": 5883
+    },
+    {
+     "tool": "get_schema",
+     "result_chars": 4841
+    },
+    {
+     "tool": "query",
+     "result_chars": 12113
+    },
+    {
+     "tool": "query",
+     "result_chars": 4427
+    }
+   ],
+   "cost_micro_usd": 4017,
+   "seconds": 13.6,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 8060,
+      "cached": 0,
+      "output": 304
+     },
+     "cost_micro_usd": 233,
+     "latency_ms": 1485
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 7127,
+      "cache_write_1h": 0,
+      "cache_read": 8060,
+      "cached": 0,
+      "output": 439
+     },
+     "cost_micro_usd": 1192,
+     "latency_ms": 2361
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 6641,
+      "cache_write_1h": 0,
+      "cache_read": 15187,
+      "cached": 0,
+      "output": 638
+     },
+     "cost_micro_usd": 1302,
+     "latency_ms": 2976
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 2860,
+      "cache_write_1h": 0,
+      "cache_read": 21828,
+      "cached": 0,
+      "output": 1427
+     },
+     "cost_micro_usd": 1290,
+     "latency_ms": 6436
+    }
+   ]
+  },
+  {
+   "run_id": "6ff39f8565e9566117279877fd04a44ad4c490f8360cbd07e5c3e3451b03699d",
+   "source_run_index": 5,
+   "question": "W2",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 3,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 4,
+   "data_rounds": 3,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 6025
+    },
+    {
+     "tool": "get_schema",
+     "result_chars": 5883
+    },
+    {
+     "tool": "query",
+     "result_chars": 7747
+    },
+    {
+     "tool": "query",
+     "result_chars": 10007
+    },
+    {
+     "tool": "query",
+     "result_chars": 1706
+    },
+    {
+     "tool": "query",
+     "result_chars": 9945
+    }
+   ],
+   "cost_micro_usd": 4959,
+   "seconds": 16.5,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 8060,
+      "cached": 0,
+      "output": 277
+     },
+     "cost_micro_usd": 220,
+     "latency_ms": 1800
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 5123,
+      "cache_write_1h": 0,
+      "cache_read": 8060,
+      "cached": 0,
+      "output": 658
+     },
+     "cost_micro_usd": 1051,
+     "latency_ms": 2643
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 9917,
+      "cache_write_1h": 0,
+      "cache_read": 13183,
+      "cached": 0,
+      "output": 859
+     },
+     "cost_micro_usd": 1802,
+     "latency_ms": 3927
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 6737,
+      "cache_write_1h": 0,
+      "cache_read": 23100,
+      "cached": 0,
+      "output": 1625
+     },
+     "cost_micro_usd": 1886,
+     "latency_ms": 7508
+    }
+   ]
+  },
+  {
+   "run_id": "990be2a93ce3dd30a4a351a9214f1717e02d72379578134e9e3a9d0b00e41c52",
+   "source_run_index": 6,
+   "question": "W3",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 3,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 4,
+   "data_rounds": 3,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 7347
+    },
+    {
+     "tool": "describe_sampling",
+     "result_chars": 5042
+    },
+    {
+     "tool": "query",
+     "result_chars": 1385
+    },
+    {
+     "tool": "query",
+     "result_chars": 594
+    },
+    {
+     "tool": "query",
+     "result_chars": 420
+    }
+   ],
+   "cost_micro_usd": 5636,
+   "seconds": 23.1,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 8052,
+      "cache_write_1h": 0,
+      "cache_read": 0,
+      "cached": 0,
+      "output": 288
+     },
+     "cost_micro_usd": 1151,
+     "latency_ms": 1569
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 7182,
+      "cache_write_1h": 0,
+      "cache_read": 8052,
+      "cached": 0,
+      "output": 1819
+     },
+     "cost_micro_usd": 1888,
+     "latency_ms": 6618
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 3078,
+      "cache_write_1h": 0,
+      "cache_read": 15234,
+      "cached": 0,
+      "output": 940
+     },
+     "cost_micro_usd": 1008,
+     "latency_ms": 3740
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1183,
+      "cache_write_1h": 0,
+      "cache_read": 18312,
+      "cached": 0,
+      "output": 2515
+     },
+     "cost_micro_usd": 1589,
+     "latency_ms": 10718
+    }
+   ]
+  },
+  {
+   "run_id": "e711a79921ef42bdcaa2906c15825299c37542268997282a985fbd226870f208",
+   "source_run_index": 7,
+   "question": "W3",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 4,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 4,
+   "data_rounds": 3,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 7347
+    },
+    {
+     "tool": "describe_sampling",
+     "result_chars": 5042
+    },
+    {
+     "tool": "query",
+     "result_chars": 684
+    },
+    {
+     "tool": "query",
+     "result_chars": 1378
+    },
+    {
+     "tool": "query",
+     "result_chars": 448
+    }
+   ],
+   "cost_micro_usd": 4524,
+   "seconds": 21.7,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 8052,
+      "cached": 0,
+      "output": 243
+     },
+     "cost_micro_usd": 203,
+     "latency_ms": 1310
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 7137,
+      "cache_write_1h": 0,
+      "cache_read": 8052,
+      "cached": 0,
+      "output": 1708
+     },
+     "cost_micro_usd": 1827,
+     "latency_ms": 5778
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 2971,
+      "cache_write_1h": 0,
+      "cache_read": 15189,
+      "cached": 0,
+      "output": 1100
+     },
+     "cost_micro_usd": 1074,
+     "latency_ms": 4637
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1380,
+      "cache_write_1h": 0,
+      "cache_read": 18160,
+      "cached": 0,
+      "output": 2130
+     },
+     "cost_micro_usd": 1420,
+     "latency_ms": 9539
+    }
+   ]
+  },
+  {
+   "run_id": "05febf6bbdca160d34992ca19a21444f367ffd5af8797b5bf24301f737b26d9d",
+   "source_run_index": 8,
+   "question": "W3",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 4,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 5,
+   "data_rounds": 4,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 7347
+    },
+    {
+     "tool": "describe_sampling",
+     "result_chars": 5042
+    },
+    {
+     "tool": "query",
+     "result_chars": 135
+    },
+    {
+     "tool": "query",
+     "result_chars": 135
+    },
+    {
+     "tool": "query",
+     "result_chars": 2921
+    },
+    {
+     "tool": "query",
+     "result_chars": 489
+    },
+    {
+     "tool": "query",
+     "result_chars": 276
+    }
+   ],
+   "cost_micro_usd": 5627,
+   "seconds": 26.6,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 8052,
+      "cached": 0,
+      "output": 288
+     },
+     "cost_micro_usd": 225,
+     "latency_ms": 1414
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 7182,
+      "cache_write_1h": 0,
+      "cache_read": 8052,
+      "cached": 0,
+      "output": 1694
+     },
+     "cost_micro_usd": 1826,
+     "latency_ms": 6191
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1858,
+      "cache_write_1h": 0,
+      "cache_read": 15234,
+      "cached": 0,
+      "output": 1249
+     },
+     "cost_micro_usd": 1010,
+     "latency_ms": 4091
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 3389,
+      "cache_write_1h": 0,
+      "cache_read": 17092,
+      "cached": 0,
+      "output": 1032
+     },
+     "cost_micro_usd": 1111,
+     "latency_ms": 4593
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1218,
+      "cache_write_1h": 0,
+      "cache_read": 20481,
+      "cached": 0,
+      "output": 2195
+     },
+     "cost_micro_usd": 1455,
+     "latency_ms": 9785
+    }
+   ]
+  }
+ ]
+}

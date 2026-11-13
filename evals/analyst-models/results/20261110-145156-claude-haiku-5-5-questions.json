@@ -1,0 +1,273 @@
+{
+ "model": "claude-haiku-5-5@medium",
+ "mode": "after",
+ "question_set": "questions-draft.md",
+ "commit": "9ffae0f",
+ "tool_list": "not recorded",
+ "scorer_revision": "not recorded; saved scores are not recomputed for this export",
+ "score_snapshot_sha256": "5974db359157b48105f7cd07fa9e13802ace8a92509ab9a79378288f6d3e3783",
+ "published": "numbers only: answers and tool arguments are not published",
+ "runs": [
+  {
+   "run_id": "abcdf09838c0764d81b33dff66b5a45f2e5e91c25706e9feae81ea118730fa87",
+   "source_run_index": 0,
+   "question": "C6",
+   "repeat": 1,
+   "checks": 0,
+   "checks_passed": 0,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 2,
+   "data_rounds": 1,
+   "tools": [
+    {
+     "tool": "browse_stac_catalog",
+     "result_chars": 2551
+    }
+   ],
+   "cost_micro_usd": 2801,
+   "seconds": 5.6,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 16368,
+      "cache_write_1h": 0,
+      "cache_read": 0,
+      "cached": 0,
+      "output": 262
+     },
+     "cost_micro_usd": 2178,
+     "latency_ms": 2421
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1281,
+      "cache_write_1h": 0,
+      "cache_read": 16368,
+      "cached": 0,
+      "output": 597
+     },
+     "cost_micro_usd": 623,
+     "latency_ms": 3210
+    }
+   ]
+  },
+  {
+   "run_id": "ce1ab064bcf8964ffa8324938dbbadb71d0eea04161f4e24e38f28de8ed95a26",
+   "source_run_index": 1,
+   "question": "C6",
+   "repeat": 2,
+   "checks": 0,
+   "checks_passed": 0,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 3,
+   "data_rounds": 2,
+   "tools": [
+    {
+     "tool": "browse_stac_catalog",
+     "result_chars": 2552
+    },
+    {
+     "tool": "get_stac_details",
+     "result_chars": 16016
+    }
+   ],
+   "cost_micro_usd": 3959,
+   "seconds": 6.3,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 16368,
+      "cache_write_1h": 0,
+      "cache_read": 0,
+      "cached": 0,
+      "output": 209
+     },
+     "cost_micro_usd": 2151,
+     "latency_ms": 1368
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1228,
+      "cache_write_1h": 0,
+      "cache_read": 16368,
+      "cached": 0,
+      "output": 213
+     },
+     "cost_micro_usd": 424,
+     "latency_ms": 1467
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 7833,
+      "cache_write_1h": 0,
+      "cache_read": 17596,
+      "cached": 0,
+      "output": 457
+     },
+     "cost_micro_usd": 1384,
+     "latency_ms": 2850
+    }
+   ]
+  },
+  {
+   "run_id": "f7043366fa4e4111d953aefbfe0d6bf3324ab79cc47c20ded551373ba7f41ad3",
+   "source_run_index": 2,
+   "question": "C6",
+   "repeat": 3,
+   "checks": 0,
+   "checks_passed": 0,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 2,
+   "data_rounds": 1,
+   "tools": [
+    {
+     "tool": "browse_stac_catalog",
+     "result_chars": 2552
+    }
+   ],
+   "cost_micro_usd": 2845,
+   "seconds": 6.0,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 16368,
+      "cache_write_1h": 0,
+      "cache_read": 0,
+      "cached": 0,
+      "output": 220
+     },
+     "cost_micro_usd": 2157,
+     "latency_ms": 2005
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1239,
+      "cache_write_1h": 0,
+      "cache_read": 16368,
+      "cached": 0,
+      "output": 737
+     },
+     "cost_micro_usd": 688,
+     "latency_ms": 3950
+    }
+   ]
+  },
+  {
+   "run_id": "82f7157acdcf14e8922381d77e7550a7ca613b955fd744bd9429efacadf2a126",
+   "source_run_index": 3,
+   "question": "F6",
+   "repeat": 1,
+   "checks": 0,
+   "checks_passed": 0,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 1,
+   "data_rounds": 0,
+   "tools": [],
+   "cost_micro_usd": 2437,
+   "seconds": 4.0,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 16367,
+      "cache_write_1h": 0,
+      "cache_read": 0,
+      "cached": 0,
+      "output": 781
+     },
+     "cost_micro_usd": 2437,
+     "latency_ms": 3972
+    }
+   ]
+  },
+  {
+   "run_id": "500c7f55f56bbaba4360f187eb0ff8d1b9a513bfe119de62796696c7a1d80715",
+   "source_run_index": 4,
+   "question": "F6",
+   "repeat": 2,
+   "checks": 0,
+   "checks_passed": 0,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 1,
+   "data_rounds": 0,
+   "tools": [],
+   "cost_micro_usd": 634,
+   "seconds": 4.7,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 16367,
+      "cached": 0,
+      "output": 938
+     },
+     "cost_micro_usd": 634,
+     "latency_ms": 4684
+    }
+   ]
+  },
+  {
+   "run_id": "a3c27e8e08e01076a6490dc02cbf498e7726aefb099bfce4df04a12390232b40",
+   "source_run_index": 5,
+   "question": "F6",
+   "repeat": 3,
+   "checks": 0,
+   "checks_passed": 0,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 1,
+   "data_rounds": 0,
+   "tools": [],
+   "cost_micro_usd": 498,
+   "seconds": 4.1,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 16367,
+      "cached": 0,
+      "output": 667
+     },
+     "cost_micro_usd": 498,
+     "latency_ms": 4138
+    }
+   ]
+  }
+ ]
+}

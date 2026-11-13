@@ -1,0 +1,390 @@
+{
+ "about": "Comparison questions whose honest answer depends on when each series has values. Scoring is pass/fail per check; a question passes when every check passes. Truth was measured with describe_sampling on 2026-11-10.",
+ "questions": [
+  {
+   "id": "W2",
+   "question": "Compare forereef bottom temperature at 30 m across the LTER sites in 2020.",
+   "table": "data_0928fdb533c118 (btm_daily) or data_69c1f240c8d3f6 / data_556e38973e3f4f",
+   "truth": "Forereef 30 m in 2020: LTER_0 all year; LTER_3 to 10 Sep, LTER_4 to 9 Sep, LTER_5 to 14 Sep, LTER_6 to 11 Sep. LTER_1 and LTER_2 have no 30 m record in 2020.",
+   "checks": [
+    {
+     "id": "september_end",
+     "text": "Notes that most 30 m loggers stop in early or mid September 2020 (all but LTER_0).",
+     "auto": {
+      "any": [
+       "Sep(tember)?[^.\\n]{0,80}(end|stop|last|until|through)",
+       "(end|stop|last|until|through)[^.\\n]{0,80}Sep(tember)?"
+      ]
+     }
+    },
+    {
+     "id": "missing_sites",
+     "text": "Notes that LTER_1 and LTER_2 have no 30 m data in 2020.",
+     "auto": {
+      "any": [
+       "LTER[ _]?1\\s*(and|&|,)\\s*(LTER[ _]?)?2\\b[^.\\n]{0,60}(no|not|lack|absent|without|missing)",
+       "(no|not|lack|absent|without|missing)[^.\\n]{0,60}LTER[ _]?1\\s*(and|&|,)\\s*(LTER[ _]?)?2\\b",
+       "LTER[ _]?1[^\\n]{0,80}\\b(no|none|not)\\b[^\\n]{0,200}LTER[ _]?2[^\\n]{0,100}\\b(no|none|not)\\b",
+       "\\bno\\b[^\\n]{0,40}(data|record)[^\\n]{0,40}LTER[ _]?1[^\\n]{0,200}LTER[ _]?2",
+       "(?s)LTER[ _]?1\\b.{0,80}\\b(no|none|not)\\b.{0,300}LTER[ _]?2\\b.{0,100}\\b(no|none|not)\\b",
+       "(?s)LTER[ _]?2\\b.{0,100}\\b(no|none|not)\\b.{0,300}LTER[ _]?1\\b.{0,80}\\b(no|none|not)\\b"
+      ]
+     }
+    },
+    {
+     "id": "no_slot_share",
+     "text": "Does not give counts as a percentage of nominal slots or days.",
+     "auto": {
+      "answer_check_absent": [
+       "slot_share",
+       "coverage_percent"
+      ]
+     }
+    },
+    {
+     "id": "matching_months",
+     "text": "Compares matching months (January to early September), or says the months differ.",
+     "auto": {
+      "any": [
+       "same months",
+       "matching months",
+       "overlap",
+       "common (period|months|window)",
+       "shared (period|months|window)",
+       "not (directly |fully )?comparable",
+       "different (months|periods)",
+       "(Jan|January)\\s*(–|-|to|through)\\s*(Aug|August|Sep|September)",
+       "(period|window|months|dates?)\\s+(that\\s+)?(they|all\\s+\\w+|both\\s+\\w*\\s*)\\s*(have|share|cover)"
+      ]
+     }
+    }
+   ],
+   "source_packages": [
+    "knb-lter-mcr.1035.20"
+   ]
+  },
+  {
+   "id": "W3",
+   "question": "Compare forereef seawater pH between 2017 and 2018.",
+   "table": "data_64fa2597a52464 (knb-lter-mcr.1043.1, SAMI pH, hourly)",
+   "truth": "Hourly records. 2017: 16–27 Apr and 2 Sep–31 Dec only. 2018: January to 25 Jan, then 26 Apr–16 Dec (two-day gap in July). Matching months: September–December (and late April).",
+   "checks": [
+    {
+     "id": "gap_2017",
+     "text": "Notes that 2017 has no records from late April to early September (or covers only late April and September–December).",
+     "auto": {
+      "any": [
+       "2017[^\\n]{0,160}(May|Jun|Jul|Aug)",
+       "(May|June|July|August)[^.\\n]{0,80}2017",
+       "2017[^.\\n]{0,80}(128-day|gap)",
+       "(27|28)\\s*(Apr|April)[^\\n]{0,15}(to|–|-|until)[^\\n]{0,10}(1|2)\\s*(Sep|September)",
+       "2017[^\\n]{0,160}\\b12[78][- ]days?\\b"
+      ]
+     }
+    },
+    {
+     "id": "gap_2018",
+     "text": "Notes that 2018 has no records from late January to late April.",
+     "auto": {
+      "any": [
+       "2018[^\\n]{0,160}(Feb|Mar)",
+       "(Feb|February|March)[^.\\n]{0,80}2018",
+       "2018[^.\\n]{0,80}(91-day|gap)",
+       "25 Jan[^.\\n]{0,30}26 Apr",
+       "(25|26)\\s*(Jan|January)[^\\n]{0,15}(to|–|-|until)[^\\n]{0,10}(25|26)\\s*(Apr|April)",
+       "2018[^\\n]{0,160}\\b9[01][- ]days?\\b"
+      ]
+     }
+    },
+    {
+     "id": "no_slot_share",
+     "text": "Does not give counts as a percentage of nominal hours or slots.",
+     "auto": {
+      "answer_check_absent": [
+       "slot_share",
+       "coverage_percent"
+      ]
+     }
+    },
+    {
+     "id": "matching_months",
+     "text": "Compares matching months (September–December), or says the months differ.",
+     "auto": {
+      "any": [
+       "same months",
+       "matching months",
+       "overlap",
+       "common (period|months|window)",
+       "shared (period|months|window)",
+       "not (directly |fully )?comparable",
+       "different (months|periods|seasons)",
+       "(Sep|September)\\s*(–|-|to|through)\\s*(Dec|December)",
+       "(period|window|months|dates?)\\s+(that\\s+)?(they|all\\s+\\w+|both\\s+\\w*\\s*)\\s*(have|share|cover)"
+      ]
+     }
+    }
+   ],
+   "source_packages": [
+    "knb-lter-mcr.1043.1"
+   ]
+  },
+  {
+   "id": "W5",
+   "question": "Compare upstream water temperature at the LTER_1 and LTER_2 reef-metabolism transects from 2007 to 2025.",
+   "table": "data_da8b36a30816e9",
+   "truth": "The record is short instrument deployments, not a continuous series: 1–2 per site per year, each 3–18 days at 1-minute readings, in January–March and May–June. LTER_2 starts in 2009 (none in 2007–2008). Neither site has data in 2018; LTER_2 has none in 2017 either (LTER_1 has 12–17 January 2017). A yearly mean mixes January and May–June deployments, so compare matching deployments or months. Measured 2026-11-10 from the stored table.",
+   "checks": [
+    {
+     "id": "short_deployments",
+     "text": "Says the data are short deployments (days), not a continuous record.",
+     "auto": {
+      "any": [
+       "deployments?",
+       "campaigns?",
+       "not (a )?continuous",
+       "\\b\\d+(–|-| to )\\d+ days",
+       "(few|several) days",
+       "short (records?|periods?|windows?|bursts?)"
+      ]
+     }
+    },
+    {
+     "id": "lter2_from_2009",
+     "text": "Says LTER_2 starts in 2009.",
+     "auto": {
+      "any": [
+       "LTER_?2[^\\n]{0,160}(from|since|start\\w*|begin\\w*|first)[^.\\n]{0,20}2009",
+       "2009[^.\\n]{0,80}LTER_?2",
+       "LTER_?2[^\\n]{0,80}(no|none|missing)[^.\\n]{0,40}2007"
+      ]
+     }
+    },
+    {
+     "id": "no_2018",
+     "text": "Notes that there is no 2018 data (and none at LTER_2 in 2017).",
+     "auto": {
+      "any": [
+       "(no|missing|gap|absent|without|none|lacks?)[^.\\n]{0,80}2018",
+       "2018[^.\\n]{0,60}(missing|gap|absent|no data|none|not sampled)",
+       "2017[^.\\n]{0,10}(–|-|and|to)[^.\\n]{0,5}2018"
+      ]
+     }
+    },
+    {
+     "id": "season_mix",
+     "text": "Compares matching months or deployments, or says January and May–June deployments differ.",
+     "auto": {
+      "any": [
+       "(Jan|January)[^.\\n]{0,120}(May|June)",
+       "seasons?\\b",
+       "same (months|deployments|season)",
+       "matching (months|deployments)",
+       "not (directly |fully )?comparable"
+      ]
+     }
+    },
+    {
+     "id": "no_slot_share",
+     "text": "Does not give counts as a percentage of nominal slots or coverage.",
+     "auto": {
+      "answer_check_absent": [
+       "slot_share",
+       "coverage_percent"
+      ]
+     }
+    }
+   ],
+   "source_packages": [
+    "knb-lter-mcr.18.21"
+   ]
+  },
+  {
+   "id": "W6",
+   "question": "Give me the weekly mean ADCP wave height at FOR04 in 2013, and point out any gaps in the record.",
+   "table": "data_d3fad8f37b806b (waves.parquet, hs_adcp_m)",
+   "truth": "ADCP records from 1 Jan 2013 (every 3 h; 1,485 records in 29 weeks with data). Gaps longer than a day: 13–22 Jan (9.4 days), 9 Jul–5 Aug (26.9 days) and 10 Aug–31 Dec (142.8 days; one record on 31 Dec). Weeks with no data have no mean; nothing is filled.",
+   "needs": "resample",
+   "checks": [
+    {
+     "id": "gap_july",
+     "text": "Names the gap from about 9 July to 5 August 2013.",
+     "auto": {
+      "any": [
+       "(9|09)\\s*(Jul|July)[^.\\n]{0,40}(5|05)\\s*(Aug|August)",
+       "(Jul|July)\\s*(9|09)[^.\\n]{0,40}(Aug|August)\\s*(5|05)",
+       "2013-07-09[^.\\n]{0,40}2013-08-05",
+       "(early|mid|mid-)\\s*July[^.\\n]{0,40}(early|start of|beginning of)\\s*August"
+      ]
+     }
+    },
+    {
+     "id": "gap_aug_dec",
+     "text": "Notes no data from mid-August to the end of 2013.",
+     "auto": {
+      "any": [
+       "(10|mid)[- ]?(Aug|August)[^.\\n]{0,80}(Dec|December|end of (the )?year|year[- ]end)",
+       "(Aug|August)\\s*10[^.\\n]{0,80}(Dec|December)",
+       "2013-08-10[^.\\n]{0,60}2013-12-3",
+       "(14[23]|142\\.\\d)[- ]day"
+      ]
+     }
+    },
+    {
+     "id": "gap_jan",
+     "text": "Notes the 13–22 January gap.",
+     "auto": {
+      "any": [
+       "(13|Jan(uary)? 13)[^.\\n]{0,30}(22|Jan(uary)? 22)",
+       "2013-01-13[^.\\n]{0,40}2013-01-22",
+       "9(\\.4)?[- ]day[^.\\n]{0,40}Jan"
+      ]
+     }
+    },
+    {
+     "id": "no_slot_share",
+     "text": "Does not give counts as a percentage of nominal slots, bins or days.",
+     "auto": {
+      "answer_check_absent": [
+       "slot_share",
+       "coverage_percent"
+      ]
+     }
+    }
+   ],
+   "source_packages": [
+    "knb-lter-mcr.31.45"
+   ]
+  },
+  {
+   "id": "W7",
+   "question": "Compare backreef (1–2 m) bottom temperature at LTER 1, LTER 4 and LTER 6 in 2020.",
+   "table": "data_0928fdb533c118 (btm_daily, zone 'Backreef 1–2 m') or data_69c1f240c8d3f6 / data_556e38973e3f4f",
+   "truth": "Daily records. LTER_1 all year. LTER_6 has no data 11 Jan–18 Aug 2020; LTER_4 has no data 15 Aug–26 Sep. Days all three share: 1–10 Jan and 27 Sep–31 Dec (106 days); mean daily temp_mean over them LTER_1 27.78, LTER_4 27.68, LTER_6 27.73 °C (27 Sep–31 Dec only: 27.76, 27.65, 27.71).",
+   "needs": "compare_periods",
+   "checks": [
+    {
+     "id": "lter6_gap",
+     "text": "Notes that LTER 6 has no data from mid-January to mid-August 2020.",
+     "auto": {
+      "any": [
+       "LTER[ _]?6[^\\n]{0,220}(Jan|January|Feb|February)[^\\n]{0,80}(Jul|July|Aug|August)",
+       "(Jan|January|Feb|February)[^\\n]{0,80}(Jul|July|Aug|August)[^\\n]{0,80}LTER[ _]?6",
+       "LTER[ _]?6[^\\n]{0,120}(no data|missing|gap|absent)[^\\n]{0,60}(Feb|Mar|Apr|May|Jun|Jul|spring|winter|most of)"
+      ]
+     }
+    },
+    {
+     "id": "lter4_gap",
+     "text": "Notes that LTER 4 has no data from mid-August to late September 2020.",
+     "auto": {
+      "any": [
+       "LTER[ _]?4[^\\n]{0,220}(Aug|August)[^\\n]{0,40}(Sep|September)",
+       "(Aug|August)[^\\n]{0,40}(Sep|September)[^\\n]{0,80}LTER[ _]?4"
+      ]
+     }
+    },
+    {
+     "id": "matching_days",
+     "text": "Compares the days or months all three share, or says the periods differ.",
+     "auto": {
+      "any": [
+       "same (months|days|dates|window)",
+       "matching (months|days|dates)",
+       "overlap",
+       "common (period|months|window|days|dates)",
+       "shared (period|months|window|days|dates)",
+       "not (directly |fully )?comparable",
+       "different (months|periods|seasons)",
+       "(period|window|months|days|dates?)\\s+(that\\s+)?(they|all\\s+\\w+|both\\s+\\w*\\s*)\\s*(have|share|cover)",
+       "like[- ]for[- ]like"
+      ]
+     }
+    },
+    {
+     "id": "no_slot_share",
+     "text": "Does not give counts as a percentage of nominal slots, bins or days.",
+     "auto": {
+      "answer_check_absent": [
+       "slot_share",
+       "coverage_percent"
+      ]
+     }
+    }
+   ],
+   "source_packages": [
+    "knb-lter-mcr.1035.20"
+   ]
+  },
+  {
+   "id": "W8",
+   "question": "Was the ADCP wave height at FOR04 higher in 2016 or in 2017?",
+   "table": "data_d3fad8f37b806b (waves.parquet, hs_adcp_m)",
+   "truth": "2016: records 14 Jan–16 Aug (plus one on 31 Dec). 2017: from 8 Jul only. Whole-year means (1.276 m vs 1.251 m) are not comparable. Over the month-days both years have (8 Jul–16 Aug and 31 Dec): 2016 1.247 m (316 records), 2017 1.256 m (324 records): about the same, 2017 marginally higher.",
+   "needs": "compare_periods",
+   "checks": [
+    {
+     "id": "start_2017",
+     "text": "Notes that 2017 has data only from early July.",
+     "auto": {
+      "any": [
+       "2017[^.\\n]{0,120}(Jul|July)",
+       "(Jul|July)[^.\\n]{0,60}2017",
+       "2017-07-08"
+      ]
+     }
+    },
+    {
+     "id": "stop_2016",
+     "text": "Notes that 2016 has no data after mid-August.",
+     "auto": {
+      "any": [
+       "2016[^.\\n]{0,140}(Aug|August)",
+       "(Aug|August)[^.\\n]{0,60}2016",
+       "2016-08-16"
+      ]
+     }
+    },
+    {
+     "id": "shared_window_mean",
+     "text": "Gives the 2016 mean over exactly the month-days both years have (1.247 m for 8 Jul–16 Aug, with or without 31 Dec), not a window that differs between years.",
+     "auto": {
+      "any": [
+       "1\\.247"
+      ]
+     }
+    },
+    {
+     "id": "matching_window",
+     "text": "Compares the July–August days both years have, or says the years are not comparable as a whole.",
+     "auto": {
+      "any": [
+       "same (months|days|dates|window)",
+       "matching (months|days|dates)",
+       "overlap",
+       "common (period|months|window|days|dates)",
+       "shared (period|months|window|days|dates)",
+       "not (directly |fully )?comparable",
+       "different (months|periods|seasons)",
+       "(period|window|months|days|dates?)\\s+(that\\s+)?(they|all\\s+\\w+|both\\s+\\w*\\s*)\\s*(have|share|cover)",
+       "like[- ]for[- ]like",
+       "(Jul|July)[^.\\n]{0,30}(\\u2013|-|to|through)[^.\\n]{0,10}(Aug|August)"
+      ]
+     }
+    },
+    {
+     "id": "no_slot_share",
+     "text": "Does not give counts as a percentage of nominal slots, bins or days.",
+     "auto": {
+      "answer_check_absent": [
+       "slot_share",
+       "coverage_percent"
+      ]
+     }
+    }
+   ],
+   "source_packages": [
+    "knb-lter-mcr.31.45"
+   ]
+  }
+ ]
+}

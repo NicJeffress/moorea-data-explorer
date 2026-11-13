@@ -1,0 +1,35 @@
+# Cloudflare Tunnel for the GLEN private preview.
+# Installed by deploy/bootstrap.sh as /etc/systemd/system/glen-tunnel.service.
+#
+# The tunnel token is read from /etc/cloudflared/glen-tunnel.env (root only,
+# mode 0600, one line: TUNNEL_TOKEN=...). systemd reads that file as root and
+# passes the token in the environment, so it never appears on a command line,
+# in git or in this unit. cloudflared itself runs as an unprivileged dynamic user.
+#
+# The connection is outbound only; no inbound port is opened.
+
+[Unit]
+Description=Cloudflare Tunnel for the GLEN private preview
+After=network-online.target caddy.service
+Wants=network-online.target
+ConditionPathExists=/etc/cloudflared/glen-tunnel.env
+StartLimitIntervalSec=300
+StartLimitBurst=10
+
+[Service]
+Type=notify
+EnvironmentFile=/etc/cloudflared/glen-tunnel.env
+ExecStart=/usr/bin/cloudflared --no-autoupdate --config /etc/cloudflared/config.yml tunnel run
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=60
+DynamicUser=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+MemoryMax=512M
+
+[Install]
+WantedBy=multi-user.target

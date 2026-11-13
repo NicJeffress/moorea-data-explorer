@@ -1,0 +1,26 @@
+# Data notice
+
+The MIT licence in this repository covers the code only.
+
+**No dataset is included here.** The explorer reads data published by the Moorea Coral Reef Long Term Ecological Research program (MCR LTER) through the Environmental Data Initiative (EDI). Each data package belongs to its creators and carries its own licence, shown on its EDI page. To use the data, download it from EDI and follow that package's terms.
+
+Data sets were provided by the Moorea Coral Reef Ecosystem LTER, funded by the US National Science Foundation (OCE-0417412).
+
+## Values quoted in this repository
+
+The evaluation files under `evals/analyst-models/`, the temperature example in `site/system-prompt.md`, and the screenshots quote or depict summaries computed for this project from the packages below, all released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). These are project summaries, not the original records. Sampling questions carry explicit `source_packages` identifiers, including the underlying source of derived wave summaries; the prompt example identifies its source in a comment.
+
+- Moorea Coral Reef LTER; Edmunds, Peter (2026). MCR LTER: Coral Reef: Long-term Population and Community Dynamics: Corals, ongoing since 2005. Revision 44. Environmental Data Initiative. https://doi.org/10.6073/pasta/65f9aad0f4332a144238593e28be395d. Licence: CC BY 4.0. (`knb-lter-mcr.4.44`)
+- Moorea Coral Reef LTER; Maritorena, Stephane (2022). MCR LTER: Coral Reef: Optical parameters and SST from SeaWiFS and MODIS, ongoing since 1997 and AVHRR-derived SST from 1985 to 2009. Revision 25. Environmental Data Initiative. https://doi.org/10.6073/pasta/1af940ced473549db5a1a02b9edb2e00. Licence: CC BY 4.0. (`knb-lter-mcr.5.25`)
+- Moorea Coral Reef LTER; Brooks, Andrew (2026). MCR LTER: Coral Reef: Long-term Population and Community Dynamics: Fishes, ongoing since 2005. Revision 65. Environmental Data Initiative. https://doi.org/10.6073/pasta/dd768d4e88e5adc4ccc0535d20d941d3. Licence: CC BY 4.0. (`knb-lter-mcr.6.65`)
+- Moorea Coral Reef LTER; Carpenter, Robert (2025). MCR LTER: Coral Reef: Long-term Population and Community Dynamics: Other Benthic Invertebrates, ongoing since 2005. Revision 38. Environmental Data Initiative. https://doi.org/10.6073/pasta/e78df2dc33df7df1ede8a9ae0528be3a. Licence: CC BY 4.0. (`knb-lter-mcr.7.38`)
+- Moorea Coral Reef LTER; Washburn, Libe; Brooks, Andrew; Krumbholz, Hillary (2025). MCR LTER: Coral Reef: Gump Station Meteorological Data, ongoing since 2006. Revision 54. Environmental Data Initiative. https://doi.org/10.6073/pasta/6b66627a59d96b271352299337c57613. Licence: CC BY 4.0. (`knb-lter-mcr.9.54`)
+- Moorea Coral Reef LTER; Carpenter, Robert; MacIntyre, Sally (2026). MCR LTER: Coral Reef: Rates of benthic coral reef community metabolism from 2007 ongoing. Revision 21. Environmental Data Initiative. https://doi.org/10.6073/pasta/2307345a7242c002d53a32ccd798a390. Licence: CC BY 4.0. (`knb-lter-mcr.18.21`)
+- Moorea Coral Reef LTER; Washburn, Libe (2025). MCR LTER: Coral Reef: Ocean Currents and Biogeochemistry: salinity, temperature and current at CTD and ADCP mooring FOR04 from 2004 ongoing. Revision 45. Environmental Data Initiative. https://doi.org/10.6073/pasta/7c0f1f4a1932f211e7b883683a2c02ea. Licence: CC BY 4.0. (`knb-lter-mcr.31.45`)
+- Moorea Coral Reef LTER; Alldredge, Alice (2019). MCR LTER: Coral Reef: Water Column: Nutrients, ongoing since 2005. Revision 9. Environmental Data Initiative. https://doi.org/10.6073/pasta/9328a024f2bf16ecc66024f07dbcc574. Licence: CC BY 4.0. (`knb-lter-mcr.1034.9`)
+- Moorea Coral Reef LTER; Leichter, James; Adam, Tom; Krumbholz, Hillary (2026). MCR LTER: Coral Reef: Benthic Water Temperature, ongoing since 2005. Revision 20. Environmental Data Initiative. https://doi.org/10.6073/pasta/bb8cb2232b3d00e445ece285c1f76f03. Licence: CC BY 4.0. (`knb-lter-mcr.1035.20`)
+- Moorea Coral Reef LTER; Edmunds, Peter (2026). MCR LTER: Coral Reef: Long-term Community Dynamics: Backreef (Lagoon) Corals Annual Survey, ongoing since 2005. Revision 15. Environmental Data Initiative. https://doi.org/10.6073/pasta/3f4b6aae4d19abb3f88b9b6fd9987192. Licence: CC BY 4.0. (`knb-lter-mcr.1038.15`)
+- Moorea Coral Reef LTER; Brooks, Andrew (2026). MCR LTER: Coral Reef: Long-term Population Dynamics of Acanthaster planci, ongoing since 2005. Revision 13. Environmental Data Initiative. https://doi.org/10.6073/pasta/0601a5aa24c8f35fda90a99b4f1a50bd. Licence: CC BY 4.0. (`knb-lter-mcr.1039.13`)
+- Moorea Coral Reef LTER; Carpenter, Robert (2019). MCR LTER: North Shore Moored pH sensors, SeaFET 2012-2015 and SAMI 2015-ongoing. Revision 1. Environmental Data Initiative. https://doi.org/10.6073/pasta/a35a7dccb19dc0a65fb5829a0c7e87c8. Licence: CC BY 4.0. (`knb-lter-mcr.1043.1`)
+- Moorea Coral Reef LTER; Edmunds, Peter (2025). MCR LTER: Coral Reef: Coral Community Dynamics: Coral Recruitment. Revision 15. Environmental Data Initiative. https://doi.org/10.6073/pasta/d02d8716d1fc9e72f7e7d8b75337389c. Licence: CC BY 4.0. (`knb-lter-mcr.4001.15`)
+- Moorea Coral Reef LTER; Edmunds, Peter (2012). MCR LTER: Coral Reef: Computer Vision: Moorea Labeled Corals. Revision 3. Environmental Data Initiative. https://doi.org/10.6073/pasta/88dde0e68ab5232a470389f4bedd1892. Licence: CC BY 4.0. (`knb-lter-mcr.5006.3`)

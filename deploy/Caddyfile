@@ -1,0 +1,33 @@
+# GLEN private preview: loopback reverse proxy (the gated sketch in
+# docs/public-preview-plan.md). Installed by bootstrap.sh as /etc/caddy/Caddyfile.
+#
+# cloudflared sends every request here; Caddy forwards every route to the app.
+# There is deliberately no file_server: tiles and pages are served by the app
+# only after it checks the Cloudflare Access JWT.
+#
+# Kept as they arrive, because the app checks them:
+#   Host                      passed through unchanged (Caddy's default)
+#   Cf-Access-Jwt-Assertion   passed through unchanged (no header_up rules)
+# No Cache-Control here: the app's PreviewBoundary sets it on every response
+# (immutable private tiles, no-cache pages and scripts, no-store API/MCP), and
+# Caddy adds none of its own. No encode: the app serves the release's .gz files.
+# No access log: the app runs with --no-access-log too.
+
+{
+	admin localhost:2019
+	auto_https off
+}
+
+http://:8080 {
+	bind 127.0.0.1
+
+	# The app rejects analyst bodies over 256 KB itself; this is a backstop.
+	request_body {
+		max_size 1MB
+	}
+
+	reverse_proxy 127.0.0.1:8765 {
+		# Pass streamed analyst/MCP replies through as they arrive.
+		flush_interval -1
+	}
+}

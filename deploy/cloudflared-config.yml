@@ -1,0 +1,30 @@
+# cloudflared settings for the GLEN private preview.
+# Installed by deploy/bootstrap.sh as /etc/cloudflared/config.yml.
+#
+# The tunnel is created in the Cloudflare dashboard and run with its token
+# (TUNNEL_TOKEN in /etc/cloudflared/glen-tunnel.env). For a tunnel run that
+# way, Cloudflare takes the routes from the dashboard, not from this file. The
+# ingress below records what the dashboard route must say, and lets you check
+# it on the droplet:
+#
+#     cloudflared tunnel --config /etc/cloudflared/config.yml ingress validate
+#     cloudflared tunnel --config /etc/cloudflared/config.yml ingress rule https://glen.example.com/
+#
+# Replace glen.example.com with the hostname Nic picks (for example
+# glen.example.com). It must equal the host in GLEN_PREVIEW_ORIGIN.
+#
+# Dashboard route, exactly:
+#   Public hostname   glen.example.com     (no path)
+#   Service           HTTP  127.0.0.1:8080  (Caddy; never the app's 8765 directly)
+#   HTTP Host Header  leave empty, so the app sees the public hostname
+#   Access            protect with the GLEN preview Access application
+
+ingress:
+  - hostname: glen.example.com
+    service: http://127.0.0.1:8080
+  # Anything else that reaches this tunnel gets a 404, never the app.
+  - service: http_status:404
+
+# Local-only metrics, for `curl -s 127.0.0.1:20241/ready`.
+metrics: 127.0.0.1:20241
+loglevel: info

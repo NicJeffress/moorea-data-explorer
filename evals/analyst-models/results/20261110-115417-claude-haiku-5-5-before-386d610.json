@@ -1,0 +1,102 @@
+{
+ "model": "claude-haiku-5-5@medium",
+ "mode": "before",
+ "commit": "c9cbdd0",
+ "before_commit": "386d610",
+ "tool_list": "not recorded",
+ "scorer_revision": "not recorded; saved scores are not recomputed for this export",
+ "score_snapshot_sha256": "2c610641b5050e85ec6e008bbe5055d98a4a23e893942af88ea59f868ba8fdd2",
+ "published": "numbers only: answers and tool arguments are not published",
+ "runs": [
+  {
+   "run_id": "2654d5df31840b887481d34ff83d482a999c7d73931884ee04aaeb44caebb21b",
+   "source_run_index": 0,
+   "question": "W3",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 4,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 4,
+   "data_rounds": 3,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 6433
+    },
+    {
+     "tool": "query",
+     "result_chars": 794
+    },
+    {
+     "tool": "query",
+     "result_chars": 885
+    },
+    {
+     "tool": "query",
+     "result_chars": 1532
+    }
+   ],
+   "cost_micro_usd": 4335,
+   "seconds": 22.5,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 14704,
+      "cached": 0,
+      "output": 142
+     },
+     "cost_micro_usd": 219,
+     "latency_ms": 1588
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 3880,
+      "cache_write_1h": 0,
+      "cache_read": 14704,
+      "cached": 0,
+      "output": 1387
+     },
+     "cost_micro_usd": 1326,
+     "latency_ms": 4833
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 2495,
+      "cache_write_1h": 0,
+      "cache_read": 18584,
+      "cached": 0,
+      "output": 966
+     },
+     "cost_micro_usd": 981,
+     "latency_ms": 3802
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1947,
+      "cache_write_1h": 0,
+      "cache_read": 21079,
+      "cached": 0,
+      "output": 2708
+     },
+     "cost_micro_usd": 1809,
+     "latency_ms": 11451
+    }
+   ]
+  }
+ ]
+}

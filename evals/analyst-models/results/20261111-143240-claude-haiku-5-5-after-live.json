@@ -1,0 +1,857 @@
+{
+ "model": "claude-haiku-5-5@medium",
+ "mode": "after",
+ "commit": "142c5c6",
+ "tool_list": "live",
+ "scorer_revision": "not recorded; saved scores are not recomputed for this export",
+ "score_snapshot_sha256": "51e62f069b2c863d3f68c15923aecf5ef4fa88c9a15111ff8390ac853f9f7e92",
+ "published": "numbers only: answers and tool arguments are not published",
+ "runs": [
+  {
+   "run_id": "db67afdcbfb62ffb8753bee427574da14d41c41e536c36df802fc5b05f12905e",
+   "source_run_index": 0,
+   "question": "W1",
+   "repeat": null,
+   "checks": 5,
+   "checks_passed": 5,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 4,
+   "data_rounds": 2,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 8213
+    },
+    {
+     "tool": "describe_sampling",
+     "result_chars": 4090
+    },
+    {
+     "tool": "query",
+     "result_chars": 16016
+    }
+   ],
+   "cost_micro_usd": 9630,
+   "seconds": 30.0,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 26969,
+      "cache_write_1h": 0,
+      "cache_read": 0,
+      "cached": 0,
+      "output": 330
+     },
+     "cost_micro_usd": 3537,
+     "latency_ms": 2256
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 6053,
+      "cache_write_1h": 0,
+      "cache_read": 26969,
+      "cached": 0,
+      "output": 656
+     },
+     "cost_micro_usd": 1355,
+     "latency_ms": 3064
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 9723,
+      "cache_write_1h": 0,
+      "cache_read": 33022,
+      "cached": 0,
+      "output": 2970
+     },
+     "cost_micro_usd": 3031,
+     "latency_ms": 12507
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 1226,
+      "cache_write_1h": 0,
+      "cache_read": 42745,
+      "cached": 0,
+      "output": 2250
+     },
+     "cost_micro_usd": 1707,
+     "latency_ms": 11162
+    }
+   ]
+  },
+  {
+   "run_id": "8b2a5a5dbe8b2b48eedeca5907ba546b1644c88af4875b555fd7cfbcfb877fcb",
+   "source_run_index": 1,
+   "question": "W1",
+   "repeat": null,
+   "checks": 5,
+   "checks_passed": 5,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 5,
+   "data_rounds": 3,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 8213
+    },
+    {
+     "tool": "describe_sampling",
+     "result_chars": 4090
+    },
+    {
+     "tool": "query",
+     "result_chars": 16016
+    },
+    {
+     "tool": "query",
+     "result_chars": 1150
+    }
+   ],
+   "cost_micro_usd": 7310,
+   "seconds": 29.6,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 26969,
+      "cached": 0,
+      "output": 312
+     },
+     "cost_micro_usd": 427,
+     "latency_ms": 1695
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 6036,
+      "cache_write_1h": 0,
+      "cache_read": 26969,
+      "cached": 0,
+      "output": 961
+     },
+     "cost_micro_usd": 1505,
+     "latency_ms": 4365
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 9988,
+      "cache_write_1h": 0,
+      "cache_read": 33005,
+      "cached": 0,
+      "output": 1058
+     },
+     "cost_micro_usd": 2108,
+     "latency_ms": 4729
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1695,
+      "cache_write_1h": 0,
+      "cache_read": 42993,
+      "cached": 0,
+      "output": 1672
+     },
+     "cost_micro_usd": 1479,
+     "latency_ms": 7529
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 1446,
+      "cache_write_1h": 0,
+      "cache_read": 44688,
+      "cached": 0,
+      "output": 2324
+     },
+     "cost_micro_usd": 1791,
+     "latency_ms": 10835
+    }
+   ]
+  },
+  {
+   "run_id": "b13ab4fb4f2ef751035821af43b10c647a7a224ab67d06f0299279f65e016671",
+   "source_run_index": 2,
+   "question": "W1",
+   "repeat": null,
+   "checks": 5,
+   "checks_passed": 5,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 4,
+   "data_rounds": 2,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 8213
+    },
+    {
+     "tool": "describe_sampling",
+     "result_chars": 4090
+    },
+    {
+     "tool": "query",
+     "result_chars": 1019
+    },
+    {
+     "tool": "query",
+     "result_chars": 3837
+    }
+   ],
+   "cost_micro_usd": 5769,
+   "seconds": 28.2,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 26969,
+      "cached": 0,
+      "output": 271
+     },
+     "cost_micro_usd": 406,
+     "latency_ms": 1490
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 5995,
+      "cache_write_1h": 0,
+      "cache_read": 26969,
+      "cached": 0,
+      "output": 1568
+     },
+     "cost_micro_usd": 1804,
+     "latency_ms": 6084
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 4785,
+      "cache_write_1h": 0,
+      "cache_read": 32964,
+      "cached": 0,
+      "output": 1802
+     },
+     "cost_micro_usd": 1829,
+     "latency_ms": 8989
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 1157,
+      "cache_write_1h": 0,
+      "cache_read": 37749,
+      "cached": 0,
+      "output": 2413
+     },
+     "cost_micro_usd": 1730,
+     "latency_ms": 11333
+    }
+   ]
+  },
+  {
+   "run_id": "417444d3fd726c1a3e7f96a461030ce855398fe060632f64f86bfa51bbcc0ffe",
+   "source_run_index": 3,
+   "question": "W2",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 3,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 4,
+   "data_rounds": 3,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 5883
+    },
+    {
+     "tool": "browse_stac_catalog",
+     "result_chars": 16016
+    },
+    {
+     "tool": "query",
+     "result_chars": 3874
+    },
+    {
+     "tool": "query",
+     "result_chars": 1589
+    },
+    {
+     "tool": "query",
+     "result_chars": 3096
+    }
+   ],
+   "cost_micro_usd": 7465,
+   "seconds": 12.9,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 26970,
+      "cache_write_1h": 0,
+      "cache_read": 0,
+      "cached": 0,
+      "output": 264
+     },
+     "cost_micro_usd": 3504,
+     "latency_ms": 1610
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 8795,
+      "cache_write_1h": 0,
+      "cache_read": 26970,
+      "cached": 0,
+      "output": 416
+     },
+     "cost_micro_usd": 1578,
+     "latency_ms": 1812
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 3150,
+      "cache_write_1h": 0,
+      "cache_read": 35765,
+      "cached": 0,
+      "output": 474
+     },
+     "cost_micro_usd": 989,
+     "latency_ms": 2229
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 2001,
+      "cache_write_1h": 0,
+      "cache_read": 38915,
+      "cached": 0,
+      "output": 1509
+     },
+     "cost_micro_usd": 1394,
+     "latency_ms": 6790
+    }
+   ]
+  },
+  {
+   "run_id": "a06f507950c56abb7350deef34598133d6c14b93e109a937dab83419b16679c0",
+   "source_run_index": 4,
+   "question": "W2",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 3,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 4,
+   "data_rounds": 3,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 5883
+    },
+    {
+     "tool": "get_schema",
+     "result_chars": 4841
+    },
+    {
+     "tool": "query",
+     "result_chars": 15498
+    },
+    {
+     "tool": "query",
+     "result_chars": 3528
+    }
+   ],
+   "cost_micro_usd": 4622,
+   "seconds": 13.7,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 26970,
+      "cached": 0,
+      "output": 293
+     },
+     "cost_micro_usd": 417,
+     "latency_ms": 1636
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 4627,
+      "cache_write_1h": 0,
+      "cache_read": 26970,
+      "cached": 0,
+      "output": 431
+     },
+     "cost_micro_usd": 1064,
+     "latency_ms": 1931
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 8259,
+      "cache_write_1h": 0,
+      "cache_read": 31597,
+      "cached": 0,
+      "output": 661
+     },
+     "cost_micro_usd": 1680,
+     "latency_ms": 3130
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 2389,
+      "cache_write_1h": 0,
+      "cache_read": 39856,
+      "cached": 0,
+      "output": 1526
+     },
+     "cost_micro_usd": 1461,
+     "latency_ms": 6749
+    }
+   ]
+  },
+  {
+   "run_id": "3b2708d7f0acb0cb2e2af31d3d1e2629eaf9af89ec3315d01329ade280afda89",
+   "source_run_index": 5,
+   "question": "W2",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 3,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 5,
+   "data_rounds": 3,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 5883
+    },
+    {
+     "tool": "get_schema",
+     "result_chars": 6025
+    },
+    {
+     "tool": "query",
+     "result_chars": 2764
+    },
+    {
+     "tool": "query",
+     "result_chars": 3939
+    },
+    {
+     "tool": "query",
+     "result_chars": 3089
+    },
+    {
+     "tool": "query",
+     "result_chars": 10446
+    },
+    {
+     "tool": "set_workspace_view",
+     "result_chars": 66
+    }
+   ],
+   "cost_micro_usd": 5667,
+   "seconds": 17.2,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 26970,
+      "cached": 0,
+      "output": 225
+     },
+     "cost_micro_usd": 383,
+     "latency_ms": 1256
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 5071,
+      "cache_write_1h": 0,
+      "cache_read": 26970,
+      "cached": 0,
+      "output": 729
+     },
+     "cost_micro_usd": 1269,
+     "latency_ms": 2823
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 4111,
+      "cache_write_1h": 0,
+      "cache_read": 32041,
+      "cached": 0,
+      "output": 667
+     },
+     "cost_micro_usd": 1168,
+     "latency_ms": 2873
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 7512,
+      "cache_write_1h": 0,
+      "cache_read": 36152,
+      "cached": 0,
+      "output": 701
+     },
+     "cost_micro_usd": 1652,
+     "latency_ms": 3577
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 731,
+      "cache_write_1h": 0,
+      "cache_read": 43664,
+      "cached": 0,
+      "output": 1333
+     },
+     "cost_micro_usd": 1195,
+     "latency_ms": 6104
+    }
+   ]
+  },
+  {
+   "run_id": "c3c5517cdf7a1bf999576ae9e948c29617c8d25207140390369bd37cb41a2f12",
+   "source_run_index": 6,
+   "question": "W3",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 4,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 4,
+   "data_rounds": 3,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 7347
+    },
+    {
+     "tool": "query",
+     "result_chars": 1919
+    },
+    {
+     "tool": "query",
+     "result_chars": 1197
+    },
+    {
+     "tool": "query",
+     "result_chars": 251
+    }
+   ],
+   "cost_micro_usd": 7891,
+   "seconds": 19.8,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 26962,
+      "cache_write_1h": 0,
+      "cache_read": 0,
+      "cached": 0,
+      "output": 131
+     },
+     "cost_micro_usd": 3437,
+     "latency_ms": 934
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 4215,
+      "cache_write_1h": 0,
+      "cache_read": 26962,
+      "cached": 0,
+      "output": 2064
+     },
+     "cost_micro_usd": 1829,
+     "latency_ms": 6765
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 3910,
+      "cache_write_1h": 0,
+      "cache_read": 31177,
+      "cached": 0,
+      "output": 636
+     },
+     "cost_micro_usd": 1119,
+     "latency_ms": 2742
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 792,
+      "cache_write_1h": 0,
+      "cache_read": 35087,
+      "cached": 0,
+      "output": 2110
+     },
+     "cost_micro_usd": 1506,
+     "latency_ms": 9050
+    }
+   ]
+  },
+  {
+   "run_id": "2217b5edf82f162957f7835accb03d7392f4096a924da802be919c1d70ccba58",
+   "source_run_index": 7,
+   "question": "W3",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 4,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 4,
+   "data_rounds": 3,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 7347
+    },
+    {
+     "tool": "query",
+     "result_chars": 794
+    },
+    {
+     "tool": "query",
+     "result_chars": 965
+    },
+    {
+     "tool": "query",
+     "result_chars": 273
+    }
+   ],
+   "cost_micro_usd": 3959,
+   "seconds": 15.1,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 26962,
+      "cached": 0,
+      "output": 131
+     },
+     "cost_micro_usd": 336,
+     "latency_ms": 908
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 4215,
+      "cache_write_1h": 0,
+      "cache_read": 26962,
+      "cached": 0,
+      "output": 1409
+     },
+     "cost_micro_usd": 1502,
+     "latency_ms": 5234
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 2470,
+      "cache_write_1h": 0,
+      "cache_read": 31177,
+      "cached": 0,
+      "output": 640
+     },
+     "cost_micro_usd": 941,
+     "latency_ms": 2498
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 805,
+      "cache_write_1h": 0,
+      "cache_read": 33647,
+      "cached": 0,
+      "output": 1485
+     },
+     "cost_micro_usd": 1180,
+     "latency_ms": 6216
+    }
+   ]
+  },
+  {
+   "run_id": "b0bea9a8b100a6d431b621e1e64a7231a2867cca6510b105f159295503da51ca",
+   "source_run_index": 8,
+   "question": "W3",
+   "repeat": null,
+   "checks": 4,
+   "checks_passed": 4,
+   "exact_pass": null,
+   "checkpoint": false,
+   "model_calls": 4,
+   "data_rounds": 3,
+   "tools": [
+    {
+     "tool": "get_schema",
+     "result_chars": 7347
+    },
+    {
+     "tool": "query",
+     "result_chars": 806
+    },
+    {
+     "tool": "query",
+     "result_chars": 957
+    }
+   ],
+   "cost_micro_usd": 4197,
+   "seconds": 18.3,
+   "records": [
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 4,
+      "cache_write_5m": 0,
+      "cache_write_1h": 0,
+      "cache_read": 26962,
+      "cached": 0,
+      "output": 129
+     },
+     "cost_micro_usd": 335,
+     "latency_ms": 971
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 4213,
+      "cache_write_1h": 0,
+      "cache_read": 26962,
+      "cached": 0,
+      "output": 980
+     },
+     "cost_micro_usd": 1287,
+     "latency_ms": 3705
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "tool_use",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1491,
+      "cache_write_1h": 0,
+      "cache_read": 31175,
+      "cached": 0,
+      "output": 777
+     },
+     "cost_micro_usd": 887,
+     "latency_ms": 3041
+    },
+    {
+     "served_model": "claude-haiku-5-5",
+     "stop_reason": "end_turn",
+     "usage": {
+      "input": 2,
+      "cache_write_5m": 1411,
+      "cache_write_1h": 0,
+      "cache_read": 32666,
+      "cached": 0,
+      "output": 2369
+     },
+     "cost_micro_usd": 1688,
+     "latency_ms": 10458
+    }
+   ]
+  }
+ ]
+}
